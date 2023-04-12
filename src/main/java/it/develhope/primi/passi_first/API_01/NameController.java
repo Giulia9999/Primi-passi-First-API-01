@@ -1,9 +1,6 @@
 package it.develhope.primi.passi_first.API_01;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
@@ -13,5 +10,11 @@ public class NameController {
         return "Name: " + name;
     }
 
+    @PostMapping("/reverseName/{name}")
+    public String reverseName(@PathVariable String name){
+        StringBuilder reverseName = new StringBuilder(name);
+        reverseName.reverse();
+        return "Reversed name: " + reverseName;
+    }
 
 }
